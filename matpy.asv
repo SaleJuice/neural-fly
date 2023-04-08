@@ -1,0 +1,9 @@
+pyenv
+function pred = matpy(params_path, data)
+    cnn = py.importlib.import_module('module');
+    py.importlib.reload(cnn);
+    model = py.importlib.import_module('cnnpred');
+    py.importlib.reload(model);
+    pred = model.prediction(pyargs('params_path', params_path, 'data', data));
+    pred = double(pred);
+end

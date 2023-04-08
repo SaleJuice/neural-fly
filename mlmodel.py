@@ -118,7 +118,7 @@ def validation(phi_net, h_net, adaptinput: np.ndarray, adaptlabel: np.ndarray, v
         Y = torch.from_numpy(adaptlabel) # K x dim_y
         Phi = phi_net(X) # K x dim_a
         Phi_T = Phi.transpose(0, 1) # dim_a x K
-        A = torch.inverse(torch.mm(Phi_T, Phi) + lam*torch.eye(options['dim_a'])) # dim_a x dim_a
+        A = torch.inverse(torch.mm(Phi_T, Phi) + lam*torch.eye(options['dim_a'])) # dim_a x dim_a  # lxz:这个后面加的是啥呀？
         a = torch.mm(torch.mm(A, Phi_T), Y) # dim_a x dim_y
         
         # Compute NN prediction for the validation and adaptation sets
