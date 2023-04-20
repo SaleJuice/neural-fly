@@ -5,7 +5,7 @@ data_ori = importdata(mat_path);
 v = get(data_ori,"Vel_e").Values;
 q = get(data_ori,"quaternion").Values;
 pwm = get(data_ori,"PWM").Values;
-fa = get(data_ori,"Fa").Values; fa.Data = squeeze(fa.Data);  % there are some dim bug with 'Fdz' data
+fa = get(data_ori,"fa").Values; fa.Data = squeeze(fa.Data);  % there are some dim bug with 'Fdz' data
 
 
 %% resample the data in 50Hz(0.02s/frame)
