@@ -1,7 +1,7 @@
-mat_path = 'data_mat/random/2';
+mat_path = 'data_mat/random/3';
 files_name = {dir(fullfile(mat_path,'*.mat')).name}';
 
-csv_path = 'data_csv/random/2';
+csv_path = 'data_csv/random/3';
 
 for index = 1:length(files_name)
     name = files_name{index,1};
