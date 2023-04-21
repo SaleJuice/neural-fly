@@ -10,10 +10,10 @@ fa = get(data_ori,"fa").Values; fa.Data = squeeze(fa.Data);  % there are some di
 
 %% resample the data in 50Hz(0.02s/frame)
 freq = 50;  % Hz
-v_re = resample(v,v.TimeInfo.Start:1/freq:v.TimeInfo.End);
-q_re = resample(q,q.TimeInfo.Start:1/freq:q.TimeInfo.End);
-pwm_re = resample(pwm,pwm.TimeInfo.Start:1/freq:pwm.TimeInfo.End);
-fa_re = resample(fa,fa.TimeInfo.Start:1/freq:fa.TimeInfo.End);
+v_re = resample(v, v.TimeInfo.Start+10:1/freq:v.TimeInfo.End);
+q_re = resample(q, q.TimeInfo.Start+10:1/freq:q.TimeInfo.End);
+pwm_re = resample(pwm, pwm.TimeInfo.Start+10:1/freq:pwm.TimeInfo.End);
+fa_re = resample(fa, fa.TimeInfo.Start+10:1/freq:fa.TimeInfo.End);
 
 
 %% save the pre-process data as .csv data
