@@ -5,7 +5,8 @@ data_ori = importdata(mat_path);
 v = get(data_ori,"Vel_e").Values;
 q = get(data_ori,"quaternion").Values;
 pwm = get(data_ori,"PWM").Values;
-fa = get(data_ori,"fa").Values; fa.Data = squeeze(fa.Data);  % there are some dim bug with 'Fdz' data
+% fa = get(data_ori,"fa").Values; fa.Data = squeeze(fa.Data);  % there are some dim bug with 'Fdz' data
+fa = data_ori{11}.Values; fa.Data = squeeze(fa.Data);  % there are some dim bug with 'Fdz' data
 
 
 %% resample the data in 50Hz(0.02s/frame)
@@ -20,7 +21,7 @@ fa_re = resample(fa, fa.TimeInfo.Start+10:1/freq:fa.TimeInfo.End);
 v_tab = timeseries2timetable(v_re); v_tab = renamevars(v_tab,"Data",'v');
 q_tab = timeseries2timetable(q_re);  q_tab = renamevars(q_tab,"Data",'q');
 pwm_tab = timeseries2timetable(pwm_re);  pwm_tab = renamevars(pwm_tab,"Data",'pwm');
-fa_tab = timeseries2timetable(fa_re);  fa_tab = renamevars(fa_tab,"Data",'fa');
+fa_tab = timeseries2timetable(fa_re);  % fa_tab = renamevars(fa_tab,"Data",'fa');
 
 all_tab = [v_tab q_tab pwm_tab fa_tab];
 
